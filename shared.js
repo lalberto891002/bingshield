@@ -25,7 +25,7 @@ function ruleToRegex(pattern) {
 function ruleToDnr(rule, id) {
   const pattern = normalizeRuleInput(rule.pattern);
   const condition = {regexFilter: ruleToRegex(pattern), isUrlFilterCaseSensitive: false, resourceTypes: ["main_frame"]};
-  return {id, priority: 1, action: {type: "block"}, condition};
+  return {id, priority: 1, action: {type: "redirect", redirect: {url: chrome.runtime.getURL("blocked.html")}}, condition};
 }
 function isScheduleActive(schedule, date = new Date()) { if (!schedule.enabled) return true; if (!schedule.days.includes(date.getDay())) return false; const minutes = date.getHours() * 60 + date.getMinutes(); const [sh, sm] = schedule.start.split(":").map(Number), [eh, em] = schedule.end.split(":").map(Number); const start = sh * 60 + sm, end = eh * 60 + em; if (start === end) return true; return start < end ? minutes >= start && minutes < end : minutes >= start || minutes < end; }
 function createSalt() { return Array.from(crypto.getRandomValues(new Uint8Array(16)), b => b.toString(16).padStart(2, "0")).join(""); }

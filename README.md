@@ -1,4 +1,4 @@
-# Guardia Web
+# BingeBlock
 
 Extensión Chrome Manifest V3 para bloquear dominios y patrones del hostname.
 

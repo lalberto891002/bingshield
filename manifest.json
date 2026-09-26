@@ -1,12 +1,12 @@
 {
   "manifest_version": 3,
-  "name": "BingeBlock",
+  "name": "BingeShield",
   "version": "0.1.0",
   "description": "Bloquea dominios y patrones con horarios, PIN e historial local.",
   "permissions": ["declarativeNetRequestWithHostAccess", "storage", "alarms", "notifications"],
   "host_permissions": ["<all_urls>"],
   "background": {"service_worker": "background.js"},
-  "action": {"default_title": "BingeBlock", "default_popup": "popup.html"},
+  "action": {"default_title": "BingeShield", "default_popup": "popup.html"},
   "options_page": "options.html",
   "web_accessible_resources": [{"resources": ["blocked.html", "blocked.css", "blocked.js", "icon.svg"], "matches": ["<all_urls>"]}]
 }
